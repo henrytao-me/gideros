@@ -9,6 +9,8 @@ describe("lib/utils.js", function() {
     it('should not include file', function() {
       expect(utils.isInclude('sample/abc/xyz.abc', '.csv$', null)).toEqual(false);
       expect(utils.isInclude('sample/abc/xyz.csv', '.csv$', '.csv$')).toEqual(false);
+      expect(utils.isInclude('.sample/abc/xyz.csv', null, '^\\.[^\\.]*')).toEqual(false);
+      expect(utils.isInclude('.sample', null, '^\\.[^\\.]*')).toEqual(false);
     });
 
     it('should include file', function() {
@@ -16,6 +18,7 @@ describe("lib/utils.js", function() {
       expect(utils.isInclude('sample/abc/xyz.csv', null, '.abc$')).toEqual(true);
       expect(utils.isInclude('sample/abc/xyz.csv', '.csv$', null)).toEqual(true);
       expect(utils.isInclude('sample/abc/xyz.csv', '.csv$', '.abc$')).toEqual(true);
+      expect(utils.isInclude('sample/abc/xyz.csv', null, '^\\.[^\\.]*')).toEqual(true);
     });
   });
 
