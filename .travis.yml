@@ -14,5 +14,5 @@ script:
   - gulp test
 
 after_script:
-  - cat tests/results/coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat tests/results/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   
