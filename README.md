@@ -76,6 +76,11 @@ These are all valid configuration for `.gideros` file which used in `MashballsCl
 - `excludedRegex` has higher priority than `includeRegex`.
 
 
+## Gideros alternative editors
+- SublimeText http://giderosmobile.com/forum/discussion/861/text-editor-heaven/p1
+- Textmate http://giderosmobile.com/forum/discussion/655/textmate-bundle-for-gideros#Item_5
+
+
 #### FINALLY, HAPPY CODING
 
 
