@@ -1,0 +1,48 @@
+<project>
+ <properties fps="60" touchToMouse="1" iosDevice="0" assetsOnly="0" encryptAssets="0" logicalWidth="480" autorotation="3" encryptCode="0" packageName="me.henrytao.mashballs" scaleMode="3" logicalHeight="800" mouseTouchOrder="0" architecture="1" orientation="1" retinaDisplay="3" mouseToTouch="1">
+  <imageScales>
+   <scale suffix="@2" scale="2"/>
+  </imageScales>
+ </properties>
+ <folder name="objects">
+  <folder name="sample">
+   <file source="newfile.lua"/>
+  </folder>
+  <file source="objects/TouchBall.lua"/>
+  <file source="objects/MainBall.lua"/>
+ </folder>
+ <folder name="texturepacks">
+  <file source="texturepacks/LevelScene.txt"/>
+  <file source="texturepacks/LevelScene.png"/>
+ </folder>
+ <folder name="fonts">
+  <file source="fonts/deftone stylus.ttf"/>
+ </folder>
+ <folder name="scenes">
+  <file source="scenes/LevelScene.lua"/>
+  <file source="scenes/LevelSelectScene.lua"/>
+  <file source="scenes/OptionsScene.lua"/>
+  <file source="scenes/AboutScene.lua"/>
+  <file source="scenes/StartScene.lua"/>
+ </folder>
+ <folder name="classes">
+  <file source="classes/Settings.lua"/>
+  <file source="classes/dataSaver.lua"/>
+  <file source="classes/TextWrap.lua"/>
+  <file source="classes/easing.lua"/>
+  <file source="classes/scenemanager.lua"/>
+  <file source="classes/Button.lua"/>
+ </folder>
+ <folder name="images">
+  <file source="images/logo.png"/>
+  <file source="images/bg.jpg"/>
+  <file source="images/ball.png"/>
+  <file source="images/testbg.jpg"/>
+ </folder>
+ <file source="config.lua"/>
+ <file source="main.lua"/>
+ <file source="packs.lua"/>
+ <dependency from="config.lua" to="classes/easing.lua"/>
+ <dependency from="config.lua" to="classes/scenemanager.lua"/>
+ <dependency from="packs.lua" to="classes/Button.lua"/>
+</project>
