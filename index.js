@@ -21,6 +21,7 @@ function isConfigChanged(file) {
 }
 
 function notification(file, type) {
+  file = path.join(file, '');
   console.log([new Date().toISOString(), 'File', file, 'was', type].join(' '));
 }
 

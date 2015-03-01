@@ -28,6 +28,12 @@ Gideros Node server will watch all files in `project-name` directory then genera
 - Update `folder` and `file` by mapping with file system. 
 - Detect and remove invalid `dependency`.
 - Keep all other configurations like `properties`.
+- Keep watching and compiling all file changes in your `project-name`.
+
+File changes include:
+
+- `create`, `change`, `delete` on `.gideros` file.
+- `create`, `delete` on all other files. 
 
 To prevent the `compiler` compile unwanted files, you can define `excludeRegex` and `includeRegex` in the file named `.gideros` at `/path/to/your/gideros/project-name/.gideros` using regular expression. 
 
