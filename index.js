@@ -15,14 +15,14 @@ function notification(file, type) {
 
 watcher = hound.watch(config.watchDir);
 watcher.on('create', function(file, stats) {
-	if (utils.isIgnore(file, config.includeRegex, config.excludeRegex)) {
+	if (!utils.isInclude(file, config.includeRegex, config.excludeRegex)) {
 		return;
 	}
   notification(file, 'created');
   compile();
 
 }).on('delete', function(file) {
-	if (utils.isIgnore(file, config.includeRegex, config.excludeRegex)) {
+	if (!utils.isInclude(file, config.includeRegex, config.excludeRegex)) {
 		return;
 	}
   notification(file, 'deleted');
