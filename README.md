@@ -35,7 +35,7 @@ These are all valid configuration for `.gideros` file which used in `MashballsCl
 
 ```
 {
-	"includeRegex": false,
+  "includeRegex": false,
   "excludeRegex": [
   	"^\\.[^\\.]*", 
   	".gproj$", 
@@ -48,22 +48,22 @@ These are all valid configuration for `.gideros` file which used in `MashballsCl
 
 ```
 {
-	"includeRegex": false,
+  "includeRegex": false,
   "excludeRegex": "^\\.[^\\.]*|.gproj$|LICENSE|README.md|^texturepacks/sources/|^texturepacks/LevelScene/"
 }
 ```
 
 ```
 {
-	"includeRegex": ".lua$",
+  "includeRegex": ".lua$",
   "excludeRegex": "^\\.[^\\.]*|.gproj$|LICENSE|README.md|^texturepacks/sources/|^texturepacks/LevelScene/"
 }
 ```
 
 ```
 {
-	"includeRegex": [
-		".lua$"
+  "includeRegex": [
+    ".lua$"
 	],
   "excludeRegex": "^\\.[^\\.]*|.gproj$|LICENSE|README.md|^texturepacks/sources/|^texturepacks/LevelScene/"
 }
