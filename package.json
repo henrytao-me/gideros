@@ -1,6 +1,6 @@
 {
   "name": "gideros",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Gideros file system based - powered by nodejs",
   "main": "index.js",
   "bin": {
@@ -29,11 +29,11 @@
   "dependencies": {
     "lodash": "^3.3.1",
     "moment": "^2.9.0",
-    "hound": "^1.0.4",
     "minimist": "^1.1.0",
     "recursive-readdir": "^1.2.1",
     "q": "^1.2.0",
-    "xml2js": "^0.4.5"
+    "xml2js": "^0.4.5",
+    "chokidar": "^1.0.0-rc4"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
