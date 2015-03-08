@@ -1,8 +1,8 @@
 // ex: node index.js /sample/dir/to/gideros-app -p gideros-app -i ... -e ...
 
 var _ = require('lodash');
-var hound = require('hound');
 var path = require('path');
+var chokidar = require('chokidar');
 
 var config = require('./lib/config');
 var utils = require('./lib/utils');
@@ -25,35 +25,47 @@ function notification(file, type) {
   console.log([new Date().toISOString(), 'File', file, 'was', type].join(' '));
 }
 
-watcher = hound.watch(config.watchDir);
-try {
-  watcher.on('create', function(file, stats) {
+var isReady = false;
+var watcher = chokidar.watch(config.watchDir);
+watcher
+  .on('add', function(file) {
+    if (!isReady) {
+      return;
+    }
     if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
       return;
     }
     notification(file, 'created');
     compile();
-
-  }).on('change', function(file, stats) {
+  })
+  .on('change', function(file) {
+    if (!isReady) {
+      return;
+    }
     if (isConfigChanged(file)) {
       notification(file, 'changed');
       compile();
     }
-
-  }).on('delete', function(file) {
+  })
+  .on('unlink', function(file) {
+    if (!isReady) {
+      return;
+    }
     if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
       return;
     }
     notification(file, 'deleted');
     compile();
+  })
+  .on('error', function(error) {
+    console.log('Error happened', error);
+  })
+  .on('ready', function() {
+    isReady = true;
+    console.log('================================================================');
+    console.log('Gideros Node');
+    console.log(JSON.stringify(config, null, '  '));
+    console.log('================================================================');
+    console.log([new Date().toISOString(), 'Start watching'].join(' '));
+    compile();
   });
-} catch (ex) {
-  console.log('Error', ex);
-}
-
-console.log('================================================================');
-console.log('Gideros Node');
-console.log(JSON.stringify(config, null, '  '));
-console.log('================================================================');
-console.log([new Date().toISOString(), 'Start watching'].join(' '));
-compile();
