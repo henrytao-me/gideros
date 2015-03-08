@@ -19,7 +19,7 @@ describe("lib/utils.js", function() {
       expect(utils.isInclude('sample/abc/xyz.csv', '.csv$', null)).toEqual(true);
       expect(utils.isInclude('sample/abc/xyz.csv', '.csv$', '.abc$')).toEqual(true);
       expect(utils.isInclude('sample/abc/xyz.csv', null, '^\\.[^\\.]*')).toEqual(true);
-      expect(utils.isInclude('../../gideros/MashballsClone/classes/sample.lua', null, '/^\\\\.[^\\\\.]*|.gproj$|LICENSE|README.md|^texturepacks/sources/|^texturepacks/LevelScene/')).toEqual(true);
+      expect(utils.isInclude('../../gideros/MashballsClone/classes/sample.lua', null, '/^\\.[^\\.]*|.gproj$|LICENSE|README.md|^texturepacks/sources/|^texturepacks/LevelScene/')).toEqual(true);
     });
   });
 
