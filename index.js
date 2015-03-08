@@ -26,26 +26,30 @@ function notification(file, type) {
 }
 
 watcher = hound.watch(config.watchDir);
-watcher.on('create', function(file, stats) {
-  if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
-    return;
-  }
-  notification(file, 'created');
-  compile();
-
-}).on('change', function(file, stats) {
-  if (isConfigChanged(file)) {
-    notification(file, 'changed');
+try {
+  watcher.on('create', function(file, stats) {
+    if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
+      return;
+    }
+    notification(file, 'created');
     compile();
-  }
 
-}).on('delete', function(file) {
-  if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
-    return;
-  }
-  notification(file, 'deleted');
-  compile();
-});
+  }).on('change', function(file, stats) {
+    if (isConfigChanged(file)) {
+      notification(file, 'changed');
+      compile();
+    }
+
+  }).on('delete', function(file) {
+    if (!utils.isInclude(file, config.includeRegex, config.excludeRegex) && !isConfigChanged(file)) {
+      return;
+    }
+    notification(file, 'deleted');
+    compile();
+  });
+} catch (ex) {
+  console.log('Error', ex);
+}
 
 console.log('================================================================');
 console.log('Gideros Node');
