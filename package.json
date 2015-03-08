@@ -1,6 +1,6 @@
 {
   "name": "gideros",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Gideros file system based - powered by nodejs",
   "main": "index.js",
   "bin": {
